@@ -195,148 +195,111 @@ section {
     color: #3D3A62;
 }
 
-/* Strategy Section - Timeline Style */
-.strategy-container {
+/* Gantt Chart Styles */
+.gantt-container {
     width: 100%;
     max-width: 1170px;
 }
 
-.progress-bar-container {
-    width: 100%;
-    height: 8px;
-    background: #E8E8E8;
-    border-radius: 4px;
-    margin-bottom: 60px;
-    position: relative;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, #3D3A62 0%, #646181 100%);
-    border-radius: 4px;
-    width: 0%;
-    transition: width 1s ease-out;
-}
-
-.progress-bar.animate {
-    width: 100%;
-}
-
-.strategy-phase {
+.gantt-header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    margin-bottom: 80px;
-    align-items: center;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #3D3A62;
 }
 
-.strategy-phase:last-child {
-    margin-bottom: 0;
-}
-
-.phase-content-text {
-    padding-right: 40px;
-}
-
-.phase-number {
-    color: #646181;
-    font-size: 16px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-}
-
-.phase-title {
+.gantt-phases-column {
     color: #3D3A62;
-    font-size: 28px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gantt-timeline-header {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+}
+
+.gantt-week {
+    text-align: center;
+    color: #646181;
+    font-size: 13px;
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    line-height: 36px;
-    margin-bottom: 20px;
 }
 
-.phase-description {
-    color: #646181;
-    font-size: 16px;
+.gantt-row {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    margin-bottom: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(100, 97, 129, 0.1);
+}
+
+.gantt-row:last-child {
+    border-bottom: none;
+}
+
+.gantt-phase-name {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gantt-phase-title {
+    color: #3D3A62;
+    font-size: 18px;
     font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 24px;
 }
 
-.phase-description ul {
-    list-style: none;
-    margin-top: 16px;
+.gantt-phase-details {
+    color: #646181;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 18px;
 }
 
-.phase-description li {
-    padding-left: 24px;
-    position: relative;
-    margin-bottom: 12px;
-}
-
-.phase-description li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #3D3A62;
-    font-weight: 600;
-}
-
-.phase-visual {
-    display: flex;
-    justify-content: center;
+.gantt-timeline {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
     align-items: center;
-    min-height: 300px;
+}
+
+.gantt-bar {
+    background: linear-gradient(90deg, #3D3A62 0%, #646181 100%);
+    height: 32px;
+    border-radius: 6px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Iridescent Cubes */
-.cube {
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.9) 0%,
-        rgba(200, 220, 255, 0.6) 25%,
-        rgba(255, 200, 255, 0.6) 50%,
-        rgba(200, 255, 255, 0.6) 75%,
-        rgba(255, 255, 255, 0.9) 100%);
-    border-radius: 20px;
-    position: absolute;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(61, 58, 98, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    animation: float 6s ease-in-out infinite;
+.gantt-bar-conditional {
+    background: linear-gradient(90deg, rgba(61, 58, 98, 0.5) 0%, rgba(100, 97, 129, 0.5) 100%);
+    border: 2px dashed #3D3A62;
 }
 
-.cube-1 {
-    transform: rotate(15deg);
-    animation-delay: 0s;
+.gantt-bar-learning {
+    background: linear-gradient(90deg, #646181 0%, #3D3A62 100%);
 }
 
-.cube-2 {
-    transform: rotate(-10deg) translateX(80px) translateY(-40px);
-    animation-delay: 1s;
-    width: 120px;
-    height: 120px;
-}
-
-.cube-3 {
-    transform: rotate(25deg) translateX(-60px) translateY(50px);
-    animation-delay: 2s;
-    width: 100px;
-    height: 100px;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) rotate(15deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(15deg);
-    }
+.conditional-label {
+    color: #3D3A62;
+    font-size: 11px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 /* Question Cards */
@@ -448,13 +411,15 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .strategy-phase {
+    .gantt-header,
+    .gantt-row {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 16px;
     }
 
-    .phase-content-text {
-        padding-right: 0;
+    .gantt-timeline-header,
+    .gantt-timeline {
+        margin-top: 8px;
     }
 
     .hero-title {
@@ -495,7 +460,19 @@ section {
         line-height: 44px;
     }
 
-    .strategy-phase {
-        margin-bottom: 60px;
+    .gantt-week {
+        font-size: 11px;
+    }
+
+    .gantt-phase-title {
+        font-size: 16px;
+    }
+
+    .gantt-phase-details {
+        font-size: 12px;
+    }
+
+    .gantt-bar {
+        height: 24px;
     }
 }
